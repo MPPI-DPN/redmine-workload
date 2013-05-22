@@ -6,6 +6,5 @@ Redmine::Plugin.register :redmine_workboard do
   url 'http://example.com/path/to/plugin'
   author_url 'http://vinyll.github.com'
   permission :workboard, { :workboard => [:index] }, :public => true
-  menu :project_menu, :workboard, { :controller => 'workboard', :action => 'index' }, :after => :activity, :param => :project_id
-
+  menu :project_menu, :workload, { :controller => 'workboard', :action => 'index' }, :after => :activity, :param => :project_id
 end
