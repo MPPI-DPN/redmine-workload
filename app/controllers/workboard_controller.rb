@@ -12,11 +12,19 @@ class WorkboardController < ApplicationController
     retrieve_query
 
     @project = Project.find(params[:project_id])
-    issues = Issue.open(true).where("project_id = ?", @project)
+    issues = Issue.open(true).where(
+      "project_id = ?
+      AND start_date != ''
+      AND due_date  != ''
+      AND estimated_hours  != ''", @project)
     members = {}
     for issue in issues
       member = issue.assigned_to
-      members[member.id] = {:member => member, :issues => []}
+      # create the member key
+      unless members[member.id]
+        members[member.id] = {:member => member, :issues => []}
+      end
+      # add issues to this user
       members[member.id][:issues].push(issue)
     end
 
