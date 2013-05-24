@@ -2,4 +2,15 @@
 
 <h2>Workboard</h2>
 
-<p>This is the workboard welcome page</p>
+<ul class="members">
+<% for id, member_issue in @member_issues -%>
+    <li>
+        <h3><%= member_issue[:member] %></h3>
+        <ul>
+            <% for issue in member_issue[:issues] -%>
+            <li><%= issue %></li>
+            <% end -%>
+        </ul>
+    </li>
+<% end -%>
+</ul>
