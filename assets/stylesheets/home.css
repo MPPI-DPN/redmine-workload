@@ -1,0 +1,56 @@
+.hours:before {
+    content: "<";
+}
+.hours:after {
+    content: "h";
+}
+
+.hours-legend {
+    margin: 0;
+    padding: 0;
+}
+.hours-legend li {
+    float: left;
+}
+.hours {
+    display: inline-block;
+    min-width: 20px;
+    padding: 2px;
+    margin-right: 1px;
+    height: 30px;
+    text-align: center;
+    color: #fff;
+    font-size: .8em;
+    font-weight: bold;
+    line-height: 30px;
+}
+.hours1 {
+    background-color: #ccc;
+}
+.hours2 {
+    background-color: #9c0;
+}
+.hours3 {
+    background-color: #bc0;
+}
+.hours4 {
+    background-color: #dc0;
+}
+.hours5 {
+    background-color: #fc0;
+}
+.hours6 {
+    background-color: #f90;
+}
+.hours7 {
+    background-color: #e61;
+}
+.hours8 {
+    background-color: #d31;
+}
+.hours12 {
+    background-color: #b25;
+}
+.hours100 {
+    background-color: #000;
+}
