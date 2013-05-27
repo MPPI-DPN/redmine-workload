@@ -1,9 +1,5 @@
 require 'active_record'
-require 'active_record/fixtures'
 require 'test_helper'
-require 'issue_patch'
-
-#Fixtures.create_fixtures("../fixtures/issues.yaml", ActiveRecord::Base.connection.tables)
 
 
 class IssuePatchTest < ActionController::TestCase
@@ -11,6 +7,7 @@ class IssuePatchTest < ActionController::TestCase
 
   def setup
     @issue = Issue.find(3)
+    @empty_issue = Issue.new
   end
 
   def test_make_sure_its_all_fine
@@ -20,6 +17,7 @@ class IssuePatchTest < ActionController::TestCase
   end
 
   def test_workload
+    assert_equal 0, @empty_issue.workload
     assert_equal 0, @issue.workload
     @issue.estimated_hours = 20
     assert_equal 3, @issue.workload
