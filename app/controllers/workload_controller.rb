@@ -1,4 +1,4 @@
-class WorkboardController < ApplicationController
+class WorkloadController < ApplicationController
   unloadable
   menu_item :workload
 

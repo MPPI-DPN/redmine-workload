@@ -1,1 +1,1 @@
-get 'workboard', :to => 'workboard#index'
+get 'workload', :to => 'workload#index'
