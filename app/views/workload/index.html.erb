@@ -10,6 +10,8 @@
             <% for issue in member_issue[:issues] -%>
             <li>
                 <%= link_to_issue(issue) %>
+                <%= issue.workload %>
+            </li>
             <% end -%>
         </ul>
     </li>
