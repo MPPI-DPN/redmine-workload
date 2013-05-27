@@ -8,7 +8,8 @@
         <h3><%= member_issue[:member] %></h3>
         <ul>
             <% for issue in member_issue[:issues] -%>
-            <li><%= issue %></li>
+            <li>
+                <%= link_to_issue(issue) %>
             <% end -%>
         </ul>
     </li>
