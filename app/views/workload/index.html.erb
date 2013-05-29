@@ -2,25 +2,45 @@
 
 <h2>Workload</h2>
 
-<ul class="members">
-<% for id, member_issue in @member_issues -%>
-    <li>
-        <h3><%= member_issue[:member] %></h3>
-        <ul>
-            <% for issue in member_issue[:issues] -%>
-            <li>
-                <%= link_to_issue(issue) %>
-                <span class="hours hours<%= issue.workload %>"><%= issue.workload %></span>
-            </li>
+<table cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <th></th>
+            <% for d in (@date_range[0]..@date_range[1]).to_a -%>
+            <th><%= d.strftime('%d') %></th>
             <% end -%>
-        </ul>
-    </li>
-<% end -%>
-</ul>
+        </tr>
+    </thead>
+    <tbody>
+        <% for id, member_issue in @member_issues -%>
+            <tr class="member">
+                <th><%= member_issue[:member] %></th>
+                <% for d in (@date_range[0]..@date_range[1]).to_a -%>
+                <td></td>
+                <% end -%>
+            </tr>
+            <% for issue in member_issue[:issues] -%>
+            <tr class="issue">
+                <th>
+                    <%= link_to_issue(issue) %>
+                </th>
+                <% for d in (@date_range[0]..@date_range[1]).to_a -%>
+                <td>
+                    <% if d >= issue.start_date and d <= issue.due_date %>
+                    <span class="hours hours<%= issue.workload %>">&nbsp;</span>
+                    <% end %>
+                </td>
+                <% end -%>
+            </tr>
+            <% end -%>
+            <% end -%>
+    </tbody>
+</table>
 
-<div>
+
+<div id="legend">
     <h4>Legend :</h4>
-    <ul class="hours-legend">
+    <ul>
         <li class="hours hours1">1</li>
         <li class="hours hours2">2</li>
         <li class="hours hours3">3</li>

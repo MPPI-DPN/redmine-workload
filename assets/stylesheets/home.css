@@ -1,20 +1,25 @@
-.hours:before {
-    content: "<";
+tr.member {
+    font-size: 1.5em;
 }
-.hours:after {
-    content: "h";
+tbody th {
+    text-align: left;
+    font-weight: normal;
 }
 
-.hours-legend {
+#legend ul {
     margin: 0;
     padding: 0;
 }
-.hours-legend li {
+#legend li {
     float: left;
 }
+#legend .hours:before {
+    content: "<";
+}
+#legend .hours:after {
+    content: "h";
+}
 .hours {
-    display: inline-block;
-    min-width: 20px;
     padding: 2px;
     margin-right: 1px;
     height: 30px;
@@ -22,6 +27,12 @@
     color: #fff;
     font-size: .8em;
     font-weight: bold;
+    min-width: 10px;
+    display: block;
+}
+#legend .hours {
+    display: inline-block;
+    min-width: 20px;
     line-height: 30px;
 }
 .hours1 {

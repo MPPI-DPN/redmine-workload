@@ -29,5 +29,9 @@ class WorkloadController < ApplicationController
     end
 
     @member_issues = members
+    @date_range = [
+      issues.order(:start_date).first.start_date.to_date,
+      issues.order(:due_date).last.due_date.to_date
+    ]
   end
 end
