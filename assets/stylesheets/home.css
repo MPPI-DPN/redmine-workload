@@ -16,6 +16,9 @@ tbody th {
 #legend .hours:before {
     content: "<";
 }
+#legend .hours100:before {
+    content: ">";
+}
 #legend .hours:after {
     content: "h";
 }

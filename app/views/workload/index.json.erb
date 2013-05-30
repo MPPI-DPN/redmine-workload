@@ -1,13 +1,13 @@
 [
 <% for list, i in @member_issues.each_with_index -%>
     {
-        "name": "<%= list[1][:member] %>",
-        "desc": "user load",
+        "name": "<h3><%= list[1][:member] %></h3>",
+        "desc": "",
         "values": [
                 {
                     "from": "/Date('2013-04-25')/",
                     "to": "/Date('2013-04-30')/",
-                    "desc": "USER LOAD",
+                    "desc": "",
                     "label": "load",
                     "customClass": "hours",
                     "dataObj": ""
