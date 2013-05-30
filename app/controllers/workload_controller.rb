@@ -8,6 +8,11 @@ class WorkloadController < ApplicationController
   helper :queries
   include QueriesHelper
 
+
+  def api_request?
+    return User.current.registered?
+  end
+
   def index
     retrieve_query
 

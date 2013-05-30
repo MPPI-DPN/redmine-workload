@@ -1,41 +1,20 @@
 <% html_title "Workload" %>
 
 <h2>Workload</h2>
-
-<table cellspacing="0" cellpadding="0">
-    <thead>
-        <tr>
-            <th></th>
-            <% for d in (@date_range[0]..@date_range[1]).to_a -%>
-            <th><%= d.strftime('%d') %></th>
-            <% end -%>
-        </tr>
-    </thead>
-    <tbody>
-        <% for id, member_issue in @member_issues -%>
-            <tr class="member">
-                <th><%= member_issue[:member] %></th>
-                <% for d in (@date_range[0]..@date_range[1]).to_a -%>
-                <td></td>
-                <% end -%>
-            </tr>
-            <% for issue in member_issue[:issues] -%>
-            <tr class="issue">
-                <th>
-                    <%= link_to_issue(issue) %>
-                </th>
-                <% for d in (@date_range[0]..@date_range[1]).to_a -%>
-                <td>
-                    <% if d >= issue.start_date and d <= issue.due_date %>
-                    <span class="hours hours<%= issue.workload %>">&nbsp;</span>
-                    <% end %>
-                </td>
-                <% end -%>
-            </tr>
-            <% end -%>
-            <% end -%>
-    </tbody>
-</table>
+<!--
+<ul>
+    <% for id, member_issue in @member_issues -%>
+    <li>
+        <h4><%= member_issue[:member] %></h4>
+        <% for issue in member_issue[:issues] -%>
+            <%= link_to_issue(issue) %>
+            <span class="hours hours<%= issue.workload %>">&nbsp;</span>
+        <% end %>
+    </li>
+    <% end -%>
+</ul>
+-->
+<div id="timeline"></div>
 
 
 <div id="legend">
@@ -55,5 +34,9 @@
 </div>
 
 <% content_for :header_tags do %>
+    <%= javascript_include_tag 'jquery', :plugin => 'redmine_workload' %>
+    <%= javascript_include_tag 'jquery.gantt.js', :plugin => 'redmine_workload' %>
+    <%= javascript_include_tag 'home', :plugin => 'redmine_workload' %>
+    <%= stylesheet_link_tag 'jquery.gantt.css', :plugin => 'redmine_workload' %>
     <%= stylesheet_link_tag 'home', :plugin => 'redmine_workload' %>
 <% end %>

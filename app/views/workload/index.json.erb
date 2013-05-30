@@ -1,0 +1,39 @@
+[
+<% for id, member_issue in @member_issues -%>
+    {
+        "name": "<%= member_issue[:member] %>",
+        "desc": "",
+        "values": [
+                {
+                    "from": "/Date('2013-04-25')/",
+                    "to": "/Date('2013-04-25')/",
+                    "desc": "LOAD",
+                    "label": "load",
+                    "customClass": "hours",
+                    "dataObj": ""
+                }
+            ]
+    },
+    <% for issue in member_issue[:issues] -%>
+    {
+        "name": "<%= issue %>",
+        "desc": "",
+        "values": [
+                {
+                    "from": "/Date('<%= issue.start_date %>')/",
+                    "to": "/Date('<%= issue.due_date %>')/",
+                    "desc": "<%= issue %>",
+                    "label": "<%= issue.workload %>",
+                    "customClass": "hours hours<%= issue.workload %>",
+                    "dataObj": ""
+                }
+            ]
+    },
+    <% end -%>
+<% end -%>
+    {
+        "name": "",
+        "desc": "",
+        "values": []
+    }
+]
