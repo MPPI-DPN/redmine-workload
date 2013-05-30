@@ -1,22 +1,22 @@
 [
-<% for id, member_issue in @member_issues -%>
+<% for list, i in @member_issues.each_with_index -%>
     {
-        "name": "<%= member_issue[:member] %>",
-        "desc": "",
+        "name": "<%= list[1][:member] %>",
+        "desc": "user load",
         "values": [
                 {
                     "from": "/Date('2013-04-25')/",
-                    "to": "/Date('2013-04-25')/",
-                    "desc": "LOAD",
+                    "to": "/Date('2013-04-30')/",
+                    "desc": "USER LOAD",
                     "label": "load",
                     "customClass": "hours",
                     "dataObj": ""
                 }
             ]
     },
-    <% for issue in member_issue[:issues] -%>
+    <% for issue in list[1][:issues] -%>
     {
-        "name": "<%= issue %>",
+        "name": "<a href=\"<%= issue_path(issue) %>\">#<%= issue.id %></a> <%= issue.subject %>",
         "desc": "",
         "values": [
                 {
@@ -25,15 +25,10 @@
                     "desc": "<%= issue %>",
                     "label": "<%= issue.workload %>",
                     "customClass": "hours hours<%= issue.workload %>",
-                    "dataObj": ""
+                    "dataObj": {"url": "<%= issue_path(issue) %>"}
                 }
             ]
-    },
+    }<% unless i == @member_issues.length-1 %>,<% end %>
     <% end -%>
 <% end -%>
-    {
-        "name": "",
-        "desc": "",
-        "values": []
-    }
 ]

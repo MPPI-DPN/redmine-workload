@@ -19,7 +19,7 @@ module IssuePatch
   module InstanceMethods
     def workload
       estimate = self.estimated_hours.to_f
-      duration = self.working_duration.to_f
+      duration = self.working_duration.to_f + 1.0
       if estimate > 0 and duration > 0
         return (estimate / duration).round
       end

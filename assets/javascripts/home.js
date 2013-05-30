@@ -6,7 +6,7 @@ $(function(){
         minScale: "days",
         maxScale: "months",
         onItemClick: function(data) {
-            alert("Item clicked - show some details");
+            document.location.href = data.url;
         },
         onAddClick: function(dt, rowId) {
             alert("Empty space clicked - add an item!");
