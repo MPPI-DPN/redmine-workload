@@ -9,6 +9,14 @@ module IssuePatch
     # Same as typing in the class
     base.class_eval do
       unloadable
+      scope :workload_estimable, lambda {|project|
+        self.open().where(
+          "#{Issue.table_name}.project_id = ?
+          AND #{Issue.table_name}.start_date != ?
+          AND #{Issue.table_name}.due_date  != ?
+          AND #{Issue.table_name}.estimated_hours  != ?",
+          project, "", "", "")
+      }
     end
 
   end

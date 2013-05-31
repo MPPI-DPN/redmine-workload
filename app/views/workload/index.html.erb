@@ -1,42 +1,34 @@
 <% html_title "Workload" %>
 
 <h2>Workload</h2>
-<!--
-<ul>
-    <% for id, member_issue in @member_issues -%>
-    <li>
-        <h4><%= member_issue[:member] %></h4>
-        <% for issue in member_issue[:issues] -%>
-            <%= link_to_issue(issue) %>
-            <span class="hours hours<%= issue.workload %>">&nbsp;</span>
-        <% end %>
-    </li>
-    <% end -%>
-</ul>
--->
-<div id="timeline"></div>
+
+<% if @issues.length > 0 %>
+    <div id="timeline"></div>
 
 
-<div id="legend">
-    <h4>Legend :</h4>
-    <ul>
-        <li class="hours hours1">1</li>
-        <li class="hours hours2">2</li>
-        <li class="hours hours3">3</li>
-        <li class="hours hours4">4</li>
-        <li class="hours hours5">5</li>
-        <li class="hours hours6">6</li>
-        <li class="hours hours7">7</li>
-        <li class="hours hours8">8</li>
-        <li class="hours hours12">12</li>
-        <li class="hours hours100">12</li>
-    </ul>
-</div>
+    <div id="legend">
+        <h4>Legend :</h4>
+        <ul>
+            <li class="hours hours1">1</li>
+            <li class="hours hours2">2</li>
+            <li class="hours hours3">3</li>
+            <li class="hours hours4">4</li>
+            <li class="hours hours5">5</li>
+            <li class="hours hours6">6</li>
+            <li class="hours hours7">7</li>
+            <li class="hours hours8">8</li>
+            <li class="hours hours12">12</li>
+            <li class="hours hours100">12</li>
+        </ul>
+    </div>
 
-<% content_for :header_tags do %>
-    <%= javascript_include_tag 'jquery', :plugin => 'redmine_workload' %>
-    <%= javascript_include_tag 'jquery.gantt.js', :plugin => 'redmine_workload' %>
-    <%= javascript_include_tag 'home', :plugin => 'redmine_workload' %>
-    <%= stylesheet_link_tag 'jquery.gantt.css', :plugin => 'redmine_workload' %>
-    <%= stylesheet_link_tag 'home', :plugin => 'redmine_workload' %>
+    <% content_for :header_tags do %>
+        <%= javascript_include_tag 'jquery', :plugin => 'redmine_workload' %>
+        <%= javascript_include_tag 'jquery.gantt.js', :plugin => 'redmine_workload' %>
+        <%= javascript_include_tag 'home', :plugin => 'redmine_workload' %>
+        <%= stylesheet_link_tag 'jquery.gantt.css', :plugin => 'redmine_workload' %>
+        <%= stylesheet_link_tag 'home', :plugin => 'redmine_workload' %>
+    <% end %>
+<% else %>
+    <p>There is currently no estimated issue with date constraints for this project.</p>
 <% end %>

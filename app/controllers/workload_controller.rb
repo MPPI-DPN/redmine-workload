@@ -17,11 +17,7 @@ class WorkloadController < ApplicationController
     retrieve_query
 
     @project = Project.find(params[:project_id])
-    issues = Issue.open(true).where(
-      "project_id = ?
-      AND start_date != ''
-      AND due_date  != ''
-      AND estimated_hours  != ''", @project)
+    issues = Issue.workload_estimable(@project)
     members = {}
     for issue in issues
       member = issue.assigned_to
@@ -33,10 +29,7 @@ class WorkloadController < ApplicationController
       members[member.id][:issues].push(issue)
     end
 
+    @issues = issues
     @member_issues = members
-    @date_range = [
-      issues.order(:start_date).first.start_date.to_date,
-      issues.order(:due_date).last.due_date.to_date
-    ]
   end
 end
