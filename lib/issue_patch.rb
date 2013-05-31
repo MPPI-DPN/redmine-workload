@@ -19,6 +19,10 @@ module IssuePatch
       }
     end
 
+    def workload_estimable_by_member(project)
+      return self.workload_estimable(project)
+    end
+
   end
 
   module ClassMethods
