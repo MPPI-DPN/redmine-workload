@@ -1,5 +1,8 @@
 require 'redmine'
 
+if Redmine::VERSION::MAJOR <= 2 and Redmine::VERSION::MINOR < 2
+    require_dependency 'redmine20_patch'
+end
 require_dependency 'issue_patch'
 require_dependency 'user_patch'
 
