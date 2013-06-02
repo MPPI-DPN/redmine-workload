@@ -10,7 +10,7 @@
                 "to": "/Date('<%= block[:due_date] %>')/",
                 "desc": "<%= block[:workload] %>",
                 "label": "<%= block[:workload] %>",
-                "customClass": "hours hours<%= block[:workload] %>",
+                "customClass": "hours hours<%= hours_to_class(block[:workload]) %>",
                 "dataObj": ""
             }<% unless j == list[1][:member].workload(@project).length-1 %>,<% end %>
             <% end -%>
@@ -26,7 +26,7 @@
                 "to": "/Date('<%= issue.due_date %>')/",
                 "desc": "<%= issue %>",
                 "label": "<%= issue.workload %>",
-                "customClass": "hours hours<%= issue.workload %>",
+                "customClass": "hours hours<%= hours_to_class(issue.workload) %>",
                 "dataObj": {"url": "<%= issue_path(issue) %>"}
             }
         ]

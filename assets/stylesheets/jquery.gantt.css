@@ -176,8 +176,6 @@
     width: 100%;
     text-overflow: ellipsis;
     overflow: hidden;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.4);
-    color: #414B57 !important;
     text-align: center;
     font-size: 11px;
 }

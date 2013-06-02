@@ -6,6 +6,11 @@ tbody th {
     font-weight: normal;
 }
 
+
+#timeline .bottom {
+    display: none;
+}
+
 #legend ul {
     margin: 0;
     padding: 0;
@@ -28,8 +33,7 @@ tbody th {
     height: 30px;
     text-align: center;
     color: #fff;
-    font-size: .8em;
-    font-weight: bold;
+    font-size: .9em;
     min-width: 10px;
     display: block;
 }
@@ -37,38 +41,45 @@ tbody th {
     display: inline-block;
     min-width: 20px;
     line-height: 30px;
+    font-weight: bold;
 }
 .hours1 {
     background-color: #ccc;
+    color: #000;
 }
 .hours2 {
     background-color: #9c0;
+    color: #000;
 }
 .hours3 {
     background-color: #bc0;
+    color: #000;
 }
 .hours4 {
     background-color: #dc0;
+    color: #000;
 }
 .hours5 {
     background-color: #fc0;
+    color: #000;
 }
 .hours6 {
     background-color: #f90;
+    color: #000;
 }
 .hours7 {
     background-color: #e61;
+    color: #fff;
 }
 .hours8 {
     background-color: #d31;
+    color: #fff;
 }
 .hours12 {
     background-color: #b25;
+    color: #fff;
 }
 .hours100 {
     background-color: #000;
-}
-
-#timeline .bottom {
-    display: none;
+    color: #fff;
 }
