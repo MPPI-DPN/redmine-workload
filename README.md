@@ -43,15 +43,17 @@ A _JSON_ API is also available through the url _/projects/YOUR_PROJECT/workload.
 
 ## Run tests
 
-A few unit tests are available in the _/test_ folder.
+A few unit and functional tests are available in the _/test_ folder.
 They are based on the redmine fixture.
 
 You may run them as follow
 
     ruby -I test plugins/redmine_workload/test/unit/*
+    ruby -I test plugins/redmine_workload/test/functional/*
 
 > Using ruby -I _test_folder_ _test_file(s)_ is way faster than rake test:units
 > TEST=_file_
+
 
 ## Credits
 
