@@ -26,7 +26,7 @@
     float: left;
     height: 24px;
     line-height: 24px;
-    margin-left: -24px;
+    margin-left: 0; /* fixes day column now matching */
 }
 
 .fn-gantt .leftPanel .fn-label {
