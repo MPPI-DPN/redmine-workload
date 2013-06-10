@@ -25,14 +25,18 @@ module UserPatch
       )
     end
     def workload_issues(project)
-      return Issue.open().where(
-          "#{Issue.table_name}.project_id = ?
-          AND #{Issue.table_name}.start_date != ?
-          AND #{Issue.table_name}.due_date  != ?
-          AND #{Issue.table_name}.estimated_hours  != ?
-          AND #{Issue.table_name}.assigned_to_id = ?",
-          project, "", "", "", self.id
-      )
+      return Issue.open().find(
+         :all,
+         :joins => [:assigned_to],
+         :order => "#{User.table_name}.lastname ASC",
+         :conditions => 
+            ["#{Issue.table_name}.project_id = ?
+            AND #{Issue.table_name}.start_date != ?
+            AND #{Issue.table_name}.due_date  != ?
+            AND #{Issue.table_name}.estimated_hours  != ?
+            AND #{Issue.table_name}.assigned_to_id = ?", project, "", "", "", self.id]
+        )
+
     end
     def workload(project)
       issues = self.workload_issues(project)
@@ -71,7 +75,7 @@ end
 
 # Add module to Issue
 User.send(:include, UserPatch)
-"""
+""" quick testing in console
 p = Project.last
 u = User.find(4)
 u.workload(p)

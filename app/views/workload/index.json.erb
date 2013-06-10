@@ -1,10 +1,12 @@
 [
-<% for list, i in @member_issues.each_with_index -%>
+<% last_issue = @issues.values.last.last %>
+<% for user, issues in @issues.each_pair -%>
     {
-        "name": "<h3><%= list[1][:member] %></h3>",
+        "name": "<h3><%= user %></h3>",
         "desc": "",
         "values": [
-            <% for block, j in list[1][:member].workload(@project).each_with_index -%>
+            <% last_block = user.workload(@project.id).last %>
+            <% for block in user.workload(@project.id) -%>
             {
                 "from": "/Date('<%= block[:start_date] %>')/",
                 "to": "/Date('<%= block[:due_date] %>')/",
@@ -12,11 +14,11 @@
                 "label": "<%= block[:workload] %>",
                 "customClass": "hours hours<%= hours_to_class(block[:workload]) %>",
                 "dataObj": ""
-            }<% unless j == list[1][:member].workload(@project).length-1 %>,<% end %>
+            }<% unless block == last_block %>,<% end %>
             <% end -%>
         ]
     },
-    <% for issue in list[1][:issues] -%>
+    <% issues.each do |issue| -%>
     {
         "name": "<a href=\"<%= issue_path(issue) %>\">#<%= issue.id %></a> <%= issue.subject %>",
         "desc": "",
@@ -30,7 +32,8 @@
                 "dataObj": {"url": "<%= issue_path(issue) %>"}
             }
         ]
-    }<% unless i == @member_issues.length-1 %>,<% end %>
+    }<% unless issue == last_issue %>,<% end %>
     <% end -%>
+
 <% end -%>
 ]
