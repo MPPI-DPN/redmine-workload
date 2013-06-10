@@ -7,12 +7,13 @@ tbody th {
 }
 
 
-#timeline .bottom {
+#timeline .nav-slider-left, #timeline .nav-slider-right {
     display: none;
 }
-
-#timeline .dataPanel {
-    background: transparent url('../images/bg-grid.png') repeat 10px 11px;
+#timeline .nav-slider,
+#timeline .nav-slider-content,
+#content .nav-slider-bar {
+    width: 80%;
 }
 
 #legend ul {
