@@ -11,6 +11,10 @@ tbody th {
     display: none;
 }
 
+#timeline .dataPanel {
+    background: transparent url('../images/bg-grid.png') repeat 10px 11px;
+}
+
 #legend ul {
     margin: 0;
     padding: 0;
