@@ -21,6 +21,7 @@ class WorkloadController < ApplicationController
 
     @project = Project.find(params[:project_id])
     @issues = Issue.workload_estimable(@project).group_by(&:assigned_to)
+    puts @issues
   end
 
   def hours_to_class(hours)
