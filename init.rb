@@ -1,10 +1,10 @@
 require 'redmine'
 
 if Redmine::VERSION::MAJOR <= 2 and Redmine::VERSION::MINOR < 2
-    require_dependency 'redmine20_patch'
+    require_dependency 'workload_redmine20_patch'
 end
-require_dependency 'issue_patch'
-require_dependency 'user_patch'
+require_dependency 'workload_issue_patch'
+require_dependency 'workload_user_patch'
 
 Redmine::Plugin.register :redmine_workload do
   name 'Redmine Workload plugin'
