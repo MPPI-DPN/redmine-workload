@@ -119,4 +119,4 @@ module Workload
 end
 
 # Add module to Issue
-Issue.send(:include, Workload::IssuePatch) unless Issue.included_module.include? Workload::IssuePatch
+Issue.send(:include, Workload::IssuePatch) unless Issue.included_modules.include? Workload::IssuePatch

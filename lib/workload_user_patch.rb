@@ -76,7 +76,7 @@ module Workload
 end
 
 # Add module to Issue
-User.send(:include, Workload::UserPatch) unless User.included_module.include? Workload::UserPatch
+User.send(:include, Workload::UserPatch) unless User.included_modules.include? Workload::UserPatch
 """ quick testing in console
 p = Project.last
 u = User.find(4)
